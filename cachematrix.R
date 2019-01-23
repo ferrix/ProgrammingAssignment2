@@ -12,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
     ## The set accessor
     # When the matrix changes, the inverse is set to NULL as a side effect
     set <- function(x) {
-        # Assign with <<- to define in the enclosing environment
+        # Assign with <<- to set in the enclosing environment
         theMatrix <<- x
         theInverse <<- NULL
     }
@@ -52,7 +52,7 @@ cacheSolve <- function(x, ...) {
       }
 
       ## Get the inverse of matrix 'x'
-      solution <- solve(x$get())
+      solution <- solve(x$get(), ...)
 
       ## Cache the inverse of matrix 'x'
       x$setInverse(solution)
